@@ -8,7 +8,7 @@ It does not focus on the technical steps, instead, on the process, challenges an
 
 What is outlined in this paper is a suggested approach for how to adopt a Release Pipeline for infrastructure within an Enterprise, ITIL environment. The content consists of experience collected together from different customers and conversations, with some specifics changed to prevent the identification of those organizations.
 
-_**That said, this should not be treated as an official Microsoft document or any official guidance from Microsoft.**_ This is purely reflecting my own experience, thinking, approach and opinions. Official Microsoft documentation, guidance and assistance may be available.
+>_**That said, this should not be treated as an official Microsoft document or any official guidance from Microsoft.**_ This is purely reflecting my own experience, thinking, approach and opinions. Official Microsoft documentation, guidance and assistance may be available.
 
 It is important to note that the Release Pipeline is a concept. The implementation of it can differ dramatically depending on the Team implementing it, the people involved, the requirements of the organization and the operating environment and culture of that organization. Therefore, what is detailed in this document will not be agreed with by everybody and will not make sense in every environment. The intention is to provide you with at least a starting point or a different perspective to help you along your own journey.
 
