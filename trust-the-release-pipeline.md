@@ -190,51 +190,55 @@ An example table is as follows:
 
 | Step | Activity | Detail | Stakeholder | Possible Automation |
 |----|----|----|----|----|
-| 1 | Check that the Change is Approved | Log into the Change System and validate that the change has been approved and the change window is open. | Change Managers <br>Service Managers <br> Governance Team <br>Operations Team |  |
-| 2 | Request permissions from the Privilege Access System | Log into Microsoft Identity Manager (MIM) and request access to the target system. | Security Team <br>Operations Team |
-| 3 | Implement the change | May be manually by RDP or by running Scripts or PowerShell commands | Service Managers <br>Operations Team |
-| 4 | Validate the change | Take screenshots <br> Collect logs <br> follow a test plan and save any output | Service Managers <br>Governance Team <br>Security Team <br>Operations Team <br>Change Managers |
-| 5 | Attach evidence to the change and close. | Log into the change system <br>Upload any gathered evidence <br>Close the change <br>Send status notifications  | Service Managers <br>Governance Team <br>Security Team <br>Operations Team <br>Change Managers |
+| 1 | Check that the Change is Approved | Log into the Change System and validate that the change has been approved and the change window is open. | Change Managers <br>Service Managers <br> Governance Team <br>Operations Team | PowerShell Script <br>OR <br>Runbook |
+| 2 | Request permissions from the Privilege Access System | Log into Microsoft Identity Manager (MIM) and request access to the target system. | Security Team <br>Operations Team | PowerShell Script <br>OR <br>Runbook |
+| 3 | Implement the change | May be manually by RDP or by running Scripts or PowerShell commands | Service Managers <br>Operations Team | PowerShell Scripts |
+| 4 | Validate the change | Take screenshots <br> Collect logs <br> follow a test plan and save any output | Service Managers <br>Governance Team <br>Security Team <br>Operations Team <br>Change Managers | PowerShell Scripts |
+| 5 | Attach evidence to the change and close. | Log into the change system <br>Upload any gathered evidence <br>Close the change <br>Send status notifications  | Service Managers <br>Governance Team <br>Security Team <br>Operations Team <br>Change Managers | PowerShell Script <br>OR <br>Runbook | 
 
 With the above listed, we now have a starting point to begin writing a Release Process.
 
-... first 3 steps also, stakeholders in what the change is
+Something else we need to keep in mind is the raising of the change itself. We still need to automate this but we will integrate that into a Build process at a later stage, for now, we want to focus on Release automation. Essentially, we are starting at the end and working backwards.
 
 ### Identify your stakeholders and build relationships
-Pending
+Pending - This section addresses finding friendlies in an inclusive way
 
 ### Start building your Proof of Concept
-Pending
+TO DO
 * Start with Michael Greene's demo CI project
+* Replace with the Scripts from this Repo [Pending]
 
-The first step here is to create the automation for the change implementation process. Each step in the table compiled under "Map your existing change implementation process" has some possible automation ideas. There are 2 ways I usually think about doing these:
+The first step here is to create the automation for the change implementation process. Each step in the table compiled under "Map your existing change implementation process" has some possible automation ideas. There are generally 2 ways I usually think about doing these:
 1. Write every step in the process in the Release script that will be run by the Build agent
-2. Create Orchestrator or Service Management Automation runbooks to run each stage
+2. Create Orchestrator or Service Management Automation/Azure Automation runbooks to run each stage
 
-My preference is actually for option 2. This is because:
+My preference is actually for runbooks wherever possible. This is because:
 * It allows the manual process steps to start being replaced by people triggering the runbooks, starting with a gradual change to automation
 * The Release process can then start calling the same runbooks instead of introducing new code, which is generally considered lower risk
 * When manual intervention is required the steps can be run in the same way as the automated release process would do it
 * Modular automation is easier to debug and change
 * These steps are generally used across every system change and can be leveraged easily at a later stage for a consistent approach
+* Runbooks can also be exported and saved into Source Control, or in the case of SMA/AA they can be geenrated entirely in code and have a Release Pipeline process of their own!
+
+**Complete any Runbook creation before starting with the Release Script. So that you can call those Runbooks.**
 
 ### Ensure you have Stakeholder Engagement
-Pending
+Pending - This section addresses making sure you have regular communication with stakeholders, some who may want to bury their head and not support you.
 
 ### Create User Stories of the Release Process and ensure you have your Minimal Viable Product (MVP)
-Pending
+Pending - This section addresses how you should not get too focused on the release process itself but find a balance between delivering what the stakeholders want and delivering the capability of your solution.
 
 ## Phase 2: Build a Track Record
-Pending
+Pending - This section addresses how you start building trust in the running of this process.
 
 ### Iterate on your Process
-Pending
+Pending - This section addresses how you start running your process as a regular activity.
 
 ### Make your process visible
-Pending
+Pending - This section addresses how you give stakeholders a view into what's going on.
 
 ### Start building your capability
-Pending
+Pending - This section addresses building out your DSC Configurations.
 
 ## Phase 3: Use your track record to drive change
 Pending
