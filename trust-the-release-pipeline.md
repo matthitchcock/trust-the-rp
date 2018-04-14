@@ -230,6 +230,9 @@ My preference is actually for runbooks wherever possible. This is because:
 
 **Complete any Runbook creation before starting with the Release Script. So that you can call those Runbooks.**
 
+#### Establish a simple Dev & Release "Sprint" schedule
+Pending - This section discusses a first iteration of a release schedule, put in place simply for predictability and planning, it can be used as a starting point for full Agile/Scrum based development later but the point is to give predictability to work.
+
 ### Ensure you have Stakeholder Engagement
 Pending - This section addresses making sure you have regular communication with stakeholders, some who may want to bury their head and not support you.
 
