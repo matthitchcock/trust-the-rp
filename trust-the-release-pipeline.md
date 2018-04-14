@@ -176,13 +176,47 @@ It also helped us to define our Release Process and what we would expect to be i
 This came into play in later stages.
 
 ### Map your existing Change process into a Release process
-Pending
+We are trying to automate the process of releasing changes into production and validating them for success. So before introducing anything "new and scary", it makes sense to build a first iteration of a Release process based on what you currently do.
+
+You can list out the tasks you have to do today, along with how you are planning to tackle it with automation.
+
+For the purposes of this we will be covering Change Implementation, which means:
+* We still need to go through the process of raising a Change. This includes:
+    * Implementation Plan
+    * Test / Validation Plan
+    * Back out plan
+
+An example table is as follows:
+
+| Step | Activity | Detail | Stakeholder | Possible Automation |
+|----|----|----|----|----|
+| 1 | Check that the Change is Approved | Log into the Change System and validate that the change has been approved and the change window is open. | Change Managers <br>Service Managers <br> Governance Team <br>Operations Team |  |
+| 2 | Request permissions from the Privilege Access System | Log into Microsoft Identity Manager (MIM) and request access to the target system. | Security Team <br>Operations Team |
+| 3 | Implement the change | May be manually by RDP or by running Scripts or PowerShell commands | Service Managers <br>Operations Team |
+| 4 | Validate the change | Take screenshots <br> Collect logs <br> follow a test plan and save any output | Service Managers <br>Governance Team <br>Security Team <br>Operations Team <br>Change Managers |
+| 5 | Attach evidence to the change and close. | Log into the change system <br>Upload any gathered evidence <br>Close the change <br>Send status notifications  | Service Managers <br>Governance Team <br>Security Team <br>Operations Team <br>Change Managers |
+
+With the above listed, we now have a starting point to begin writing a Release Process.
+
+... first 3 steps also, stakeholders in what the change is
 
 ### Identify your stakeholders and build relationships
 Pending
 
-### Start your Proof of Concept
+### Start building your Proof of Concept
 Pending
+* Start with Michael Greene's demo CI project
+
+The first step here is to create the automation for the change implementation process. Each step in the table compiled under "Map your existing change implementation process" has some possible automation ideas. There are 2 ways I usually think about doing these:
+1. Write every step in the process in the Release script that will be run by the Build agent
+2. Create Orchestrator or Service Management Automation runbooks to run each stage
+
+My preference is actually for option 2. This is because:
+* It allows the manual process steps to start being replaced by people triggering the runbooks, starting with a gradual change to automation
+* The Release process can then start calling the same runbooks instead of introducing new code, which is generally considered lower risk
+* When manual intervention is required the steps can be run in the same way as the automated release process would do it
+* Modular automation is easier to debug and change
+* These steps are generally used across every system change and can be leveraged easily at a later stage for a consistent approach
 
 ### Ensure you have Stakeholder Engagement
 Pending
