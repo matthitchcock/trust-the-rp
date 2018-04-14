@@ -206,11 +206,17 @@ Something else we need to keep in mind is the raising of the change itself. We s
 Pending - This section addresses finding friendlies in an inclusive way
 
 ### Start building your Proof of Concept
+
+#### Set up your Release Pipeline Framework
+If you don't already have a release pipeline system in place, you can start with this:
 TO DO
 * Start with Michael Greene's demo CI project
 * Replace with the Scripts from this Repo [Pending]
 
-The first step here is to create the automation for the change implementation process. Each step in the table compiled under "Map your existing change implementation process" has some possible automation ideas. There are generally 2 ways I usually think about doing these:
+The goal of this step is to establish a build system that can take from your Source Control and run a Build Process and a Release Process, along with Tests. Once we have this in place we can start maturing that Release Process by building the relevant Release Steps.
+
+#### Build the Release Steps
+This step is to create the automation for the change implementation process. Each step in the table compiled under "Map your existing change implementation process" has some possible automation ideas. There are generally 2 ways I usually think about doing these:
 1. Write every step in the process in the Release script that will be run by the Build agent
 2. Create Orchestrator or Service Management Automation/Azure Automation runbooks to run each stage
 
@@ -229,6 +235,11 @@ Pending - This section addresses making sure you have regular communication with
 
 ### Create User Stories of the Release Process and ensure you have your Minimal Viable Product (MVP)
 Pending - This section addresses how you should not get too focused on the release process itself but find a balance between delivering what the stakeholders want and delivering the capability of your solution.
+
+Below shows an example of the MVP release process that was needed for a Virtualization-as-Code project.
+>In this process, it was not required to check the change system automatically or check out permissions from the Privilege Access Management system.
+
+![Example MVP Release Process](/img/example-rp-mvp.jpg)
 
 ## Phase 2: Build a Track Record
 Pending - This section addresses how you start building trust in the running of this process.
