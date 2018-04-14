@@ -90,7 +90,19 @@ Pending
 Pending
 
 ### Define your goal that will drive development effort
-Pending
+Having a clear goal defined that illustrates your intentions can help to guide conversations, guide decision making and to unite stakeholders to a common purpose. When you're starting on an Infrastructure-as-Code journey, a number of stakeholders can become skeptical. You're proposing a change to the way things are done but not only that, you're proposing automating a lot of the checks and balances that are in place. Those are likely there because of past failures. Failed changes and failed automation that has caused system downtime, weekend overtime and difficult follow up conversations.
+
+Why would this effort be any different?
+
+Having a clearly defined goal helps with alleviating this fear. For example, for my Virtualization-as-Code project at an FSI our goal was clear and simple:
+
+> _"Our goal is to eliminate unplanned downtime of the Virtualization platform as a result of operational change. The Virtualization platform will be a stable, reliable and trusted platform for application teams to deliver on new systems and new ideas, fast."_
+
+By defining this goal and including it inside of the code repository, on the Wiki pages and within update emails every week, we were continually reiterating that we are not trying to do anything that is going to cause impact to the system we are managing. To the contrary, we are striving to be better and this goal would be associated with any stakeholder who associated with us. With every feature, enhancement or change to the code that was happening, the person delivering that should be able to articulate how it supported that goal. While planning our work, anything that did not support that goal did not make it onto the work board.
+
+It also helped us to define our Release Process and what we would expect to be inside of it, because the statement " … eliminate unplanned downtime of the Virtualization platform as a result of operational change …" asked the question to ourselves; 1) What might we do or what might we encounter during a Release that would cause downtime? Then 2) How do we mitigate against that?
+
+This came into play in later stages.
 
 ### Map your existing Change process into a Release process
 Pending
