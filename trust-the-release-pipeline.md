@@ -78,6 +78,8 @@ There is no one-size-fits all and every approach is going to be different, becau
 By following these three phases and taking stakeholders on the journey with you, it generally leads to a more successful approach. This means focusing on the Release process first and less on the DSC side until a little later. Remember, DSC is not a solution in itself, it is a component of the overall solution of Infrastructure-as-Code. The primary component of which, is the Release Pipeline.
 
 # The 3 Phases of the Process
+![3 Phases](/img/3-phases.jpg)
+
 ## Phase 1: Prove the Concept
 
 ### Start with your PowerShell Code
