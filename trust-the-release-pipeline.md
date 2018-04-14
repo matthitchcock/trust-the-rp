@@ -6,7 +6,7 @@ This paper aims to provide some real world and practical context to implementing
 
 It does not focus on the technical steps, instead, on the process, challenges and high level thinking required to influence this change within an Enterprise organization. 
 
-What is outlined in this paper is a suggested approach for how to adopt a Release Pipeline for infrastructure within an Enterprise, ITIL environment. The approach aligns to what I have actually done in Enterprise customers with Microsoft and what I have learned during those engagements.
+What is outlined in this paper is a suggested approach for how to adopt a Release Pipeline for infrastructure within an Enterprise, ITIL environment. The content consists of experience collected together from different customers and conversations, with some specifics changed to prevent the identification of those organizations.
 
 _**That said, this should not be treated as an official Microsoft document or any official guidance from Microsoft.**_ This is purely reflecting my own experience, thinking, approach and opinions. Official Microsoft documentation, guidance and assistance may be available.
 
@@ -87,7 +87,20 @@ Pending
 Pending
 
 ### Identify your target system or service
-Pending
+To build a Release Pipeline for Infrastructure you need to choose a system to target. This could be a system or service that is having regular stability issues through uncontrolled change, or, it could be a stable system which experiences a slow rate of change such as a File Server. It could be a system comprised of multiple components like a 3 tier application, or a single technology like Hyper-V or Domain Controllers.
+
+When getting started there is often a reluctance to start with any serious service and instead use a low risk, low impact service which nothing much changes to. This is a safe approach for sure, however, it will definitely limit the impact of the benefit of your Release Pipeline and new approach to Infrastructure-as-Code. For my first Infrastructure-as-Code project, I suggested to the organization that I was working with to target their Hyper-V & VMM infrastructure. My thinking was as follows:
+* This was a system that was suffering stability issues. One of the benefits of Infrastructure-as-Code that I wanted to prove was that it increases stability. I wasn't going to do this on an already stable system.
+* Because of the stability issues, there was a lot of attention on the system. This change was supposed to be transformational so I needed it to be very visible .
+* Improving the stability of a system such as this would bring big benefits - it was running the Line of Business Application workloads and had customers who depended on it
+* Because this was running LOB workloads, any failure introduced by our new method would be business impacting. This forced us to be very diligent in building a release process that worked hard to reduce the risk of downtime during platform change
+
+This did bring some drawbacks of course:
+* Reluctance of stakeholders to accept new methods
+* Much longer time to get the system productionized due to the requirement to build a robust release system
+* More stakeholders to engage
+
+Overall, I am very happy with the system we chose, because the learning that came with it and that pressure that forced us to learn would not have come with anything lower risk. While I don't suggest that you take crazy risks with your company's systems, find a balance between what you believe you have the ability to do and something that will show real benefit. You will know what is right for you and for your organization.
 
 ### Define your goal that will drive development effort
 Having a clear goal defined that illustrates your intentions can help to guide conversations, guide decision making and to unite stakeholders to a common purpose. When you're starting on an Infrastructure-as-Code journey, a number of stakeholders can become skeptical. You're proposing a change to the way things are done but not only that, you're proposing automating a lot of the checks and balances that are in place. Those are likely there because of past failures. Failed changes and failed automation that has caused system downtime, weekend overtime and difficult follow up conversations.
