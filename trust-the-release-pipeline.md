@@ -81,7 +81,31 @@ By following these three phases and taking stakeholders on the journey with you,
 ## Prove the Concept
 
 ### Start with your PowerShell Code
-Pending
+Before starting a Release Pipeline to manage some infrastructure, it is a good idea to get one implemented for your PowerShell code first. This brings with it a number of benefits:
+	1. It allows you to fully grasp the release pipeline concept
+	2. It allows you to start collaborating with others on code development
+	3. It allows you to demonstrate the concept to future stakeholders as a way for them to visualize the flow and understand what you are doing
+
+When you start collaborating with others on code development from a central repository it will teach you some very key lessons for success with Infrastructure-as-Code. This is actually, in my experience the most difficult part of Infrastructure-as-Code. Many people have grasped the high level concepts of what a Release Pipeline is, what the components are and how they fit together. In fact, I have seen for myself many architects with no code background whatsoever create attractive presentations and documents discussing how code is taken from a source repository and sent down a pipeline through testing and multiple systems before deploying into production. However, they have not grasped the process for how a team would make updates to that code. They have not grasped how a team would actually code their Tests and how those tests should actually execute. They just know "tests should be run" and "code should be iterated".
+Further, I have seen for myself how this falls apart after the first demonstration of an Infrastructure change as code. When the next change is required, the process is missing, because too much thought and excitement went into this first pipeline!
+To avoid falling into the same trap, the most important skill that can be learned is contributing to central, source controlled code.
+
+You can find resources on how to do this at the end of this paper.
+
+A Release Pipeline for your PowerShell Modules might include the following:
+* Source
+    * A Source Code repository such as VSTS using Git
+* Build
+    * A Build Definition that would:
+        * Run Unit Tests using Pester against the module
+        * Test for Code Linting (PSScriptAnalyzer)
+        * Test for module functionality
+        * Compile ZIP files and Checksums of Modules and Scripts
+* Release
+    * Publish to an Internal or Public PowerShell Gallery
+    * Run a Script to instruct Pull Servers or end nodes to download new versions of Modules
+
+This is a very simple set up that will allow you to prove the concept for yourself.
 
 ### Understand and demonstrate how you would deal with "Roll Back"
 A key lesson to learn in this area is "Roll Back". With code, Roll Back is not such a good idea. We actually "fix forward". This is a very important concept to grasp when dealing with ITIL, Change Management and the like. A standard question will be "If a change fails, how will you roll back?". An expected answer might be "We will re-run the previous version of the code/package to deploy the previous settings". It's perfectly reasonable to expect this but there are two caveats:
