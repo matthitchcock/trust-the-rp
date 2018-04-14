@@ -79,12 +79,50 @@ By following these three phases and taking stakeholders on the journey with you,
 
 # The 3 steps of the Process
 ## Prove the Concept
+
+### Start with your PowerShell Code
+Pending
+
+### Understand and demonstrate how you would deal with "Roll Back"
+Pending
+
+### Identify your target system or service
+Pending
+
+### Define your goal that will drive development effort
+Pending
+
+### Map your existing Change process into a Release process
+Pending
+
+### Identify your stakeholders and build relationships
+Pending
+
+### Start your Proof of Concept
+Pending
+
+### Ensure you have Stakeholder Engagement
+Pending
+
+### Create User Stories of the Release Process and ensure you have your Minimal Viable Product (MVP)
 Pending
 
 ## Build a Track Record
 Pending
 
+### Iterate on your Process
+Pending
+
+### Make your process visible
+Pending
+
+### Start building your capability
+Pending
+
 ## Use your track record to drive change
+Pending
+
+### Identify your desired improvements and build your case
 Pending
 
 # Finishing up
