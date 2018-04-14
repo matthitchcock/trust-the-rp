@@ -77,8 +77,8 @@ There is no one-size-fits all and every approach is going to be different, becau
 
 By following these three phases and taking stakeholders on the journey with you, it generally leads to a more successful approach. This means focusing on the Release process first and less on the DSC side until a little later. Remember, DSC is not a solution in itself, it is a component of the overall solution of Infrastructure-as-Code. The primary component of which, is the Release Pipeline.
 
-# The 3 steps of the Process
-## Prove the Concept
+# The 3 Phases of the Process
+## Phase 1: Prove the Concept
 
 ### Start with your PowerShell Code
 Before starting a Release Pipeline to manage some infrastructure, it is a good idea to get one implemented for your PowerShell code first. This brings with it a number of benefits:
@@ -178,7 +178,7 @@ Pending
 ### Create User Stories of the Release Process and ensure you have your Minimal Viable Product (MVP)
 Pending
 
-## Build a Track Record
+## Phase 2: Build a Track Record
 Pending
 
 ### Iterate on your Process
@@ -190,7 +190,7 @@ Pending
 ### Start building your capability
 Pending
 
-## Use your track record to drive change
+## Phase 3: Use your track record to drive change
 Pending
 
 ### Identify your desired improvements and build your case
