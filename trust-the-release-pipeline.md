@@ -1,6 +1,6 @@
 # Overview
 
-**Please Note: This paper is unpolished and at times opinionated and rant-y, it is my expectation to mold this into something polished and presentable based on questions and feedback received so please, do send that and offer your perspectives.**
+> **Please Note: This paper is unpolished and at times opinionated and rant-y, it is my expectation to mold this into something polished and presentable based on questions and feedback received so please, do send that and offer your perspectives.**
 
 This paper aims to provide some real world and practical context to implementing a Release Pipeline for Infrastructure. A Release Pipeline is a DevOps process traditionally used for deploying software but is equally applicable to infrastructure when managing Infrastructure-as-Code.
 
