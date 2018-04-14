@@ -84,7 +84,29 @@ By following these three phases and taking stakeholders on the journey with you,
 Pending
 
 ### Understand and demonstrate how you would deal with "Roll Back"
-Pending
+A key lesson to learn in this area is "Roll Back". With code, Roll Back is not such a good idea. We actually "fix forward". This is a very important concept to grasp when dealing with ITIL, Change Management and the like. A standard question will be "If a change fails, how will you roll back?". An expected answer might be "We will re-run the previous version of the code/package to deploy the previous settings". It's perfectly reasonable to expect this but there are two caveats:
+1. If the failed release is the first one where a particular setting was introduced and you go back and deploy the previous code/package version, there is nothing there to "undo" the change you just made.
+2. If there was something there to undo the change you just made, you have regressed to, for example, v1.0 and v1.1 is failed. You wouldn’t want to deploy a v1.1 again so when you release v1.2 you have a v1.1 in the way that you didn’t actually deploy (because you rolled back). This can become confusing.
+
+My preferred way for dealing with "Roll Back" is to first align the terminology and call it "regression". You will "regress" to previous settings, configuration or functionality. This requires some planning and these steps too, allow you to build trust with stakeholders:
+1. Plan small releases (see DevOps Handbook - add reference). At no point, especially on the first release of your code, should big bang changes apply. The only time this can happen is on newly built systems when you are applying a configuration that brings them up to the same configuration as your Production systems are currently running
+2. When bringing a new setting under control for the first time, it should not make a change to that setting, it should only ensure the default setting (which should be the current setting, if it's not, use the current setting) is applied. This should be released so not to make a change. This means, you then have a Release you can go back to (or fix forward, discussed in a while) that will reset the change. This principle aligns to the principle from DevOps Handbook of "release new code/features into Production before activating them"
+3. When approaching your change, ALWAYS develop additional roll back steps into a script if you will need them and test the scripts. Where you really can't script it, you can always fall back to the old way and have a well document step by step approach. Document this in Markdown and check it in with your Source Control, so everything lives together in the repo.
+
+With this approach, you can regress as in this scenario:
+* V1.0 is the currently deployed version of the configuration in Production, everything is working fine
+	• You want to change an SMB Security Registry Key to a value of "1". It's current value is the Default value, "0".
+* Add an additional configuration item to your DSC Configuration that will set the Registry Key to "0" (it's current value). Write any accompanying Tests that are needed
+* Release the configuration (now version 1.1) to your systems. No change is made, everything should work as expected
+* Update your configuration to version v1.2 with the Reg Key value set to "1". Test as usual and Release this change. Everything looks ok.
+* Realize there is now a problem in Production with SMB due to some issue not seen in test and realize you need to regress
+* Update the Configuration to v1.3 with the Registry Key set back to "0" and release
+* You are now back to the stable state
+
+By following these rules, you set yourself up for easier problem resolution by fixing forward and reverting settings. Sure, there will be some bigger issues that need more work but they can be minimized with this approach. Fixing forward is much nicer because it allows you to see a full timeline of the systems development and change history, including what went wrong. Which is extremely important for learning!
+
+> **Incidentally, my approach may be considered wrong to others, but as I say this is not a "one-size-fits-all". Mine works, but I am interested in feedback on how others would do it.**
+
 
 ### Identify your target system or service
 To build a Release Pipeline for Infrastructure you need to choose a system to target. This could be a system or service that is having regular stability issues through uncontrolled change, or, it could be a stable system which experiences a slow rate of change such as a File Server. It could be a system comprised of multiple components like a 3 tier application, or a single technology like Hyper-V or Domain Controllers.
