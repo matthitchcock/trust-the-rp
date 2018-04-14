@@ -242,7 +242,7 @@ Pending - This section addresses how you should not get too focused on the relea
 Below shows an example of the MVP release process that was needed for a Virtualization-as-Code project.
 >In this process, it was not required to check the change system automatically or check out permissions from the Privilege Access Management system.
 
-![Example MVP Release Process](/img/example-rp-mvp.jpg)
+![Example MVP Release Process](/img/example-rp-mvp.JPG)
 
 ## Phase 2: Build a Track Record
 Pending - This section addresses how you start building trust in the running of this process.
