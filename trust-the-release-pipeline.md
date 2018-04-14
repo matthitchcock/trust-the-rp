@@ -186,7 +186,9 @@ For the purposes of this we will be covering Change Implementation, which means:
     * Test / Validation Plan
     * Back out plan
 
-An example table is as follows:
+We do, of course then need to represent the change at the Change Approval Board (CAB), probably multiple times, because we first need to raise a change to implement into one environment, then another change for the second environment, and repeat until we reach Production.
+
+An example table of activities for Change Implementation is as follows:
 
 | Step | Activity | Detail | Stakeholder | Possible Automation |
 |----|----|----|----|----|
