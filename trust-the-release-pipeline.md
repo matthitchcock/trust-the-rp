@@ -34,6 +34,8 @@ And that, is the true definition of Agility. I have been around a number of cust
 
 That, to me, is true agility and that is completely reasonable to expect. It all relies on moving to a Release Pipeline model for infrastructure and that can be a challenge when it means affecting change within your organization.
 
+![Generic Release Pipeline](/img/generic-release-pipeline.jpg)
+
 # What is the challenge to adoption
 The challenge to adoption is generally down to a few key things:
 1. A gap in education and understanding. In my experience, I have seen technology teams working to understand this process, but the persons involved in the delivery chain for production changes are not. The technology teams then come up against the task of having to educate those other teams before they can adopt these new practices
