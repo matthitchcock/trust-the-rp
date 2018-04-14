@@ -28,7 +28,7 @@ There is an excellent whitepaper written by Michael Greene and Steven Murawski o
 
 From the whitepaper, the Release Pipeline concept is comprised of 4 stages:
 
-![Stages of a Release Pipeline](/img/release-pipeline-stages.png)
+![Stages of a Release Pipeline](/img/release-pipeline-phases.jpg)
 
 Release Pipelines can essentially be viewed as automated quality control for code.
 
