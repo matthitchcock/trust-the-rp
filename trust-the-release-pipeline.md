@@ -24,10 +24,18 @@ People often asked me "can DSC do … x…" or "can DSC do … y…". Here's the
 It is my hope, that this paper, helps you break down those barriers.
 
 # What is the Release Pipeline and what does it mean for Infrastructure
-There is an excellent whitepaper written by Michael Greene and Steven Murawski on the Release Pipeline for Infrastructure. It is highly recommended reading [Add Link]. In short, the Release Pipeline is a methodology for how we can take code and deliver it into a production scenario where it can be used, through an automated Testing and Deployment solution.
+There is an excellent whitepaper written by Michael Greene and Steven Murawski on the Release Pipeline for Infrastructure. It is highly recommended reading (https://docs.microsoft.com/en-us/powershell/dsc/whitepapers). In short, the Release Pipeline is a methodology for how we can take code and deliver it into a production scenario where it can be used, through an automated Testing and Deployment solution.
+
+From the whitepaper, the Release Pipeline concept is comprised of 4 stages:
+
+![Stages of a Release Pipeline](/img/release-pipeline-stages.png)
+
 Release Pipelines can essentially be viewed as automated quality control for code.
+
 When we think about code from an Infrastructure perspective, these can be scripts, modules, runbooks, Desired State Configurations and the like. The code you deliver may just be code deployed as Runbooks for others to consume, or it may be the execution of DSC Configurations themselves to affect change on Production Servers.
+
 Release Pipelines are typically used for software and PaaS/DevOps projects to deliver changes to code into working software, but from an Infrastructure perspective either as part of a DevOps process with an application or purely to manage infrastructure they have immense value.
+
 By implementing a Release Pipeline for Infrastructure and bringing an existing service under code control, you can effectively eliminate manual changes. It is perfectly acceptable to think you can start documenting the configuration of your service in Desired State Configuration code with Environment Files. That you can release the same configurations to different environments and get the same results. That you can make changes to environments by making a change to your configurations. And, that you can test the outcome of these changes as they are rolled out into your environments and get real time feedback on success or failures so you can take action. It is completely reasonable to think you can have your whole infrastructure service completely captured in code that you can deploy or redeploy anywhere are any time.
 
 And that, is the true definition of Agility. I have been around a number of customers who I listen talk about being Agile and they refer to being able to iterate using an Agile process. That, to me, is not being Agile. For me, true Agility comes from being able to pivot quickly and respond to new demands quickly with high quality and stability. To be in one cloud service today and be able to, at short notice, re-deploy your service into a new location or environment and to swing your users to that new environment seamlessly. To be able to hear about a security threat one morning and be ready to deploy mitigating changes by lunch without breaking a sweat.
