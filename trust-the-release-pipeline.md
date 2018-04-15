@@ -119,6 +119,8 @@ A Release Pipeline for your PowerShell Modules might include the following:
 
 This is a very simple set up that will allow you to prove the concept for yourself.
 
+![Example of an Artifact Release Pipeline](/img/artifact-management-example.jpg)
+
 ### Understand and demonstrate how you would deal with "Roll Back"
 A key lesson to learn in this area is "Roll Back". With code, Roll Back is not such a good idea. We actually "fix forward". This is a very important concept to grasp when dealing with ITIL, Change Management and the like. A standard question will be "If a change fails, how will you roll back?". An expected answer might be "We will re-run the previous version of the code/package to deploy the previous settings". It's perfectly reasonable to expect this but there are two caveats:
 1. If the failed release is the first one where a particular setting was introduced and you go back and deploy the previous code/package version, there is nothing there to "undo" the change you just made.
@@ -130,8 +132,8 @@ My preferred way for dealing with "Roll Back" is to first align the terminology 
 3. When approaching your change, ALWAYS develop additional roll back steps into a script if you will need them and test the scripts. Where you really can't script it, you can always fall back to the old way and have a well document step by step approach. Document this in Markdown and check it in with your Source Control, so everything lives together in the repo.
 
 With this approach, you can regress as in this scenario:
-* V1.0 is the currently deployed version of the configuration in Production, everything is working fine
-	• You want to change an SMB Security Registry Key to a value of "1". It's current value is the Default value, "0".
+* v1.0 is the currently deployed version of the configuration in Production, everything is working fine
+    * You want to change an SMB Security Registry Key to a value of "1". It's current value is the Default value, "0".
 * Add an additional configuration item to your DSC Configuration that will set the Registry Key to "0" (it's current value). Write any accompanying Tests that are needed
 * Release the configuration (now version 1.1) to your systems. No change is made, everything should work as expected
 * Update your configuration to version v1.2 with the Reg Key value set to "1". Test as usual and Release this change. Everything looks ok.
