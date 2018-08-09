@@ -1,20 +1,28 @@
-# Overview
+# Introduction
 
-> **Please Note: This paper is unpolished and at times opinionated and rant-y, it is my expectation to mold this into something polished and presentable based on questions and feedback received so please, do send that and offer your perspectives.**
+## Overview
 
-This paper aims to provide some real world and practical context to implementing a Release Pipeline for Infrastructure. A Release Pipeline is a DevOps process traditionally used for deploying software but is equally applicable to infrastructure when managing via Infrastructure-as-Code.
+> **Please Note: This paper is unpolished and at times opinionated and rant-y, it is being molded into something polished and presentable based on questions and feedback received so please, do send that and offer your perspectives. This paper will undergo frequent changes and I am grateful for the contributions already received. -Matt Hitchcock**
+
+The goal of this paper is to provide you, the reader, with an approach through which you can reach the tipping point of a grass roots Release Pipeline transformation.
+
+A Release Pipeline is a DevOps process traditionally used for deploying software but is equally applicable to infrastructure when managing via Infrastructure-as-Code. We refer to a "grass roots" transformation because it assumes that you are in a technical role in a large enterprise driven by ITIL and you want to move to more of an "Infrastructure as Code" approach, but you don't have the backing of senior management at this time. The backing of senior management is crucial for a true transformation to take place, but where do you start and how do you gain that traction?
+
+What is outlined in this paper is a suggested approach for how to adopt a Release Pipeline for infrastructure within an Enterprise, ITIL environment not used to operating in this way. This is based on real world and practical experience of the authors and contributors of implementing Release Pipelines for Infrastructure. Both what they did right, and, what they did wrong.
+
+The content consists of experience collected together from different customers and conversations, with some specifics changed to prevent the identification of those organizations.
 
 It does not focus on the technical steps, instead, on the process, challenges and high level thinking required to influence this change within an Enterprise organization. 
 
-What is outlined in this paper is a suggested approach for how to adopt a Release Pipeline for infrastructure within an Enterprise, ITIL environment. The content consists of experience collected together from different customers and conversations, with some specifics changed to prevent the identification of those organizations.
+> **This should not be treated as an official Microsoft document or any official guidance from Microsoft.** This paper is authored by one or more folks from Microsoft and includes experiences from Microsoft projects, however, this is a community endeavour and as such should not be treated as official guidance. Official Microsoft documentation, guidance and assistance may be available from Microsoft official resources.
 
-> **This should not be treated as an official Microsoft document or any official guidance from Microsoft.** This paper reflects my own experience, thinking, approach and opinions. Official Microsoft documentation, guidance and assistance may be available.
+It is important to note that the Release Pipeline is a concept. The implementation of it can differ dramatically depending on the Team implementing it, the people involved, the requirements of the organization, the operating environment and culture of that organization. What is detailed in this document will not be agreed with by everybody and will not make sense in every environment. The intention is to provide you with at least a starting point or a different perspective to help you along your own journey.
 
-It is important to note that the Release Pipeline is a concept. The implementation of it can differ dramatically depending on the Team implementing it, the people involved, the requirements of the organization, the operating environment and culture of that organization. TWhat is detailed in this document will not be agreed with by everybody and will not make sense in every environment. The intention is to provide you with at least a starting point or a different perspective to help you along your own journey.
+If you do leverage this resource to help you on your journey, we would appreciate some feedback on what worked, what did not, and a contribution of your experience to help others is always welcome.
 
-# Why am I writing this Paper?
+## The "WHY" of this paper
 
-I am writing this paper because I spent a long time on my Infrastructure-as-Code journey doing the wrong thing. Like most technical folks, my view of Infrastructure-as-Code on the Microsoft stack was doing Desired State Configuration. While this is a component of the Infrastructure-as-Code approach, it is by no means the destination. In fact, I came to learn it is the least important element. What I learned to be most important was the delivery mechanism, which I gave little thought to until I had DSC doing incredible things.
+"I started this paper because I spent a long time on my Infrastructure-as-Code journey doing the wrong thing. Like most technical folks, my view of Infrastructure-as-Code on the Microsoft stack was doing Desired State Configuration. While this is a component of the Infrastructure-as-Code approach, it is by no means the destination. In fact, I came to learn it is the least important element. What I learned to be most important was the delivery mechanism, which I gave little thought to until I had DSC doing incredible things.
 
 I liken this to having spent time building up the pizza-making capability of a delivery service only to be making incredible pizzas that no one was eating - because I couldn't deliver them! Instead, I wish I spent my time building up capability to deliver a plain cheese pizza in 20 minutes, consistently, to as many people who ordered, before I built out my menu.
 
@@ -22,9 +30,24 @@ What I found to be the most difficult is to get an infrastructure-as-code approa
 
 People often asked me "can DSC do … x…" or "can DSC do … y…". Here's the thing - "Yes". DSC can do anything you want it to. DSC is code, code you can write yourself. There may not be Resources readily available but DSC can do anything you want. If you find yourself asking or being asked this question, rather than trying to prove what it can or cannot do, stop yourself. Focus on "how do I deliver my DSC code" and you'll find that is time best spent. Once you break down the barriers to using it in your enterprise, you can start to flow fast.
 
-It is my hope that this paper helps you break down those barriers.
+It is my hope that this paper helps you break down those barriers." -Matt Hitchcock
 
-# What is the Release Pipeline and what does it mean for Infrastructure?
+## Defining the 'Tipping Point'
+
+A 'tipping point', in short, could be described as the point where those who are able to influence a change ask "why are we not just doing it this way?"
+
+In his book, "Crossing the Chasm" Geoffrey Moore (see References) builds on the idea of Everett M. Rogers from his book "Diffusion of Innovations" (see References) which explains this curve, to apply it to Technnical Marketing. This is further discussed in "Start with Why" by Simon Sinek (Chapter 7), but can be conveniently summarised in the following graphic (taken from http://rwwleadership.files.wordpress.com)
+
+![The Tipping Point](/img/law-diff-innov.png)
+
+> **Important Book References:** The books linked above are not dry theory, if you are someone who is looking to drive a change in your organization, you will need to think beyond the technology. These books and theories represent exactly what you are trying to do. When it comes time to have management level conversations, this knowledge will be essential.
+
+The Tipping Point is the point at which the early adopters who are working with you are ready and willing to make change. They have "crossed the chasm". In the context of this paper, it means that they have seen the value of a Release Pipeline for infrastructure, they understand at more than a theory level but at a practical level what it can do for them and the organization, and they are ready to commit to change.
+
+So who are "they"? Who are the "early adopters" in this? They are outlined in more detail later, but essentially "they" are made up from all of the teams that are involved in your IT management process who are willing to experiment with something new and act as influencers within their respective teams and business units. Usually this would be someone from IT Security, someone from Change Management, a Service Manager and so on. These are generally the people you start with until enough momentum has gathered to approach the senior management who can help drive the organizational change. That point when you demonstrate to your IT leadership to achieve their buy in, that is the tipping point.
+
+# Getting Started
+## Release Pipeline in more Depth: What does it mean for Infrastructure?
 
 There is an excellent whitepaper written by Michael Greene and Steven Murawski on the Release Pipeline for Infrastructure called [The Release Pipeline Model](https://docs.microsoft.com/en-us/powershell/dsc/whitepapers), it is highly recommended reading. In short, the Release Pipeline is a methodology for how we can take code and deliver it into a production scenario where it can be used, through an automated Testing and Deployment solution.
 
@@ -52,7 +75,7 @@ That, to me, is true agility and that is completely reasonable to expect. It all
 
 ![Generic Release Pipeline](/img/generic-release-pipeline.jpg)
 
-# What is the challenge to adoption?
+## What is the challenge to adoption?
 
 The challenge to adoption is generally down to a few key things:
 
@@ -62,7 +85,7 @@ The challenge to adoption is generally down to a few key things:
 
 When a technology operations team or engineering team is trying to change the way they manage and deliver infrastructure, these 3 things act as a barrier to getting over the line.
 
-# Where does this typically apply?
+## Where does this typically apply?
 
 You may be reading this and thinking that this doesn’t represent your scenario at all. That is awesome! You work in a much healthier organization than a number of other people, but hopefully there is still some elements of this paper which will be useful to you. The perspective this paper is written from is the following:
 
@@ -77,7 +100,7 @@ You may be reading this and thinking that this doesn’t represent your scenario
 
 If this describes you, then typically it is safe to assume you've hit a brick wall.
 
-# What this paper assumes about you
+## What this paper assumes about you
 
 If the previous section sounds like your scenario and you've run up against a bit of a wall with operationalizing DSC or you're only just starting off on your journey and wondering how to begin the assumption is that you're either learning or already know:
 
@@ -87,7 +110,8 @@ If the previous section sounds like your scenario and you've run up against a bi
 
 Any code samples provided to support this paper will plug into these systems. If you're doing something different, that’s more than fine, this is about the process rather than the technology, there is just some adaptation you will need to do yourself.
 
-# How do we integrate a Release Pipeline and use Infrastructure-as-Code?
+# Planning and Building
+## How do we integrate a Release Pipeline and use Infrastructure-as-Code?
 
 There is no one-size-fits-all solution and every approach is going to be different, because every organization and every team is different. The approach I learned based on environments like the above was:
 
@@ -100,13 +124,13 @@ There is no one-size-fits-all solution and every approach is going to be differe
 
 By following these three phases and taking stakeholders on the journey with you, it generally leads to a more successful approach. This means focusing on the Release process first and less on the DSC side until later. Remember, DSC is not a solution in itself, it is a component of the overall solution of Infrastructure-as-Code. The primary component of which, is the Release Pipeline.
 
-# The 3 Phases of the Process
+## The 3 Phases of the Process
 
 ![3 Phases](/img/3-phases.jpg)
 
-## Phase 1: Prove the Concept
+### Phase 1: Prove the Concept
 
-### Start with your PowerShell Code
+#### Start with your PowerShell Code
 
 Before starting a Release Pipeline to manage infrastructure, it is a good idea to get one implemented for your PowerShell code first. This brings with it a number of benefits:
 
@@ -136,7 +160,7 @@ This is a very simple set up that will allow you to prove the concept for yourse
 
 ![Example of an Artifact Release Pipeline](/img/artifact-management-example.jpg)
 
-### Understand and demonstrate how you would deal with "Roll Back"
+#### Understand and demonstrate how you would deal with "Roll Back"
 
 A key lesson to learn in this area is "Roll Back". With code, Roll Back is not such a good idea. We actually "fix forward". This is a very important concept to grasp when dealing with ITIL, Change Management and the like. A standard question will be "If a change fails, how will you roll back?". An expected answer might be "We will re-run the previous version of the code/package to deploy the previous settings". It's perfectly reasonable to expect this but there are two caveats:
 
@@ -183,7 +207,7 @@ This did bring some drawbacks of course:
 
 Overall, I am very happy with the system we chose, because the learning that came with it and the pressure that forced us to learn would not have come with anything lower risk. While I don't suggest that you take crazy risks with your company's systems, find a balance between what you believe you have the ability to do and something that will show real benefit. You will know what is right for you and for your organization.
 
-### Define your goal that will drive development effort
+#### Define your goal that will drive development effort
 
 Having a clear goal defined that illustrates your intentions can help to guide conversations, guide decision making and to unite stakeholders to a common purpose. When you're starting on an Infrastructure-as-Code journey, a number of stakeholders can become skeptical. You're proposing a change to the way things are done but not only that, you're proposing automating a lot of the checks and balances that are in place. Those are likely there because of past failures. Failed changes and failed automation that has caused system downtime, weekend overtime and difficult follow up conversations.
 
@@ -202,7 +226,7 @@ It also helped us to define our Release Process and what we would expect to be i
 
 This came into play in later stages.
 
-### Map your existing Change process into a Release process
+#### Map your existing Change process into a Release process
 
 We are trying to automate the process of releasing changes into production and validating them for success. So before introducing anything "new and scary", it makes sense to build a first iteration of a Release process based on what you currently do.
 
@@ -230,13 +254,13 @@ With the above listed, we now have a starting point to begin writing a Release P
 
 Something else we need to keep in mind is the raising of the change itself. We still need to automate this but we will integrate that into a Build process at a later stage, for now we want to focus on Release automation. Essentially, we are starting at the end and working backwards.
 
-### Identify your stakeholders and build relationships
+#### Identify your stakeholders and build relationships
 
 Pending - This section addresses finding friendlies in an inclusive way
 
-### Start building your Proof of Concept
+#### Start building your Proof of Concept
 
-#### Set up your Release Pipeline Framework
+##### Set up your Release Pipeline Framework
 
 If you don't already have a release pipeline system in place, you can start with this:
 
@@ -247,7 +271,7 @@ TO DO
 
 The goal of this step is to establish a build system that can take from your Source Control and run a Build Process and a Release Process, along with Tests. Once we have this in place we can start maturing that Release Process by building the relevant Release Steps.
 
-#### Build the Release Steps
+##### Build the Release Steps
 
 This step is to create the automation for the change implementation process. Each step in the table compiled under _"Map your existing change implementation process"_ has some possible automation ideas. There are 2 ways I usually think about doing these:
 
@@ -265,15 +289,15 @@ My preference is actually for runbooks wherever possible. This is because:
 
 **Complete any Runbook creation before starting with the Release Script so that you can call those Runbooks.**
 
-#### Establish a simple Dev & Release "Sprint" schedule
+##### Establish a simple Dev & Release "Sprint" schedule
 
 Pending - This section discusses a first iteration of a release schedule, put in place simply for predictability and planning, it can be used as a starting point for full Agile/Scrum based development later but the point is to give predictability to work.
 
-### Ensure you have Stakeholder Engagement
+#### Ensure you have Stakeholder Engagement
 
 Pending - This section addresses making sure you have regular communication with stakeholders, some who may want to bury their head and not support you.
 
-### Create User Stories of the Release Process and ensure you have your Minimal Viable Product (MVP)
+#### Create User Stories of the Release Process and ensure you have your Minimal Viable Product (MVP)
 
 Pending - This section addresses how you should not get too focused on the release process itself but find a balance between delivering what the stakeholders want and delivering the capability of your solution.
 
@@ -283,30 +307,39 @@ Below shows an example of the MVP release process that was needed for a Virtuali
 
 ![Example MVP Release Process](/img/example-rp-mvp.JPG)
 
-## Phase 2: Build a Track Record
+### Phase 2: Build a Track Record
 
 Pending - This section addresses how you start building trust in the running of this process.
 
-### Iterate on your Process
+#### Iterate on your Process
 
 Pending - This section addresses how you start running your process as a regular activity.
 
-### Make your process visible
+#### Make your process visible
 
 Pending - This section addresses how you give stakeholders a view into what's going on.
 
-### Start building your capability
+#### Start building your capability
 
 Pending - This section addresses building out your DSC Configurations.
 
-## Phase 3: Use your track record to drive change
+### Phase 3: Use your track record to drive change
 
 Pending
 
-### Identify your desired improvements and build your case
+#### Identify your desired improvements and build your case
 
 Pending
 
-# Finishing up
+## Finishing up
 
 Text
+
+# References
+
+Diffusion of Innovation: https://www.amazon.com/Diffusion-Innovations-5th-Everett-Rogers/dp/0743222091/ref=sr_1_1?ie=UTF8&qid=1533773479&sr=8-1&keywords=diffusion+of+innovations&dpID=51Bd4UVQn5L&preST=_SY291_BO1,204,203,200_QL40_&dpSrc=srch
+
+Crossing the Chasm: https://www.amazon.com/Crossing-Chasm-3rd-Disruptive-Mainstream/dp/0062292986/ref=sr_1_1?s=books&ie=UTF8&qid=1533773566&sr=1-1&keywords=crossing+the+chasm&dpID=51nv3edK81L&preST=_SY291_BO1,204,203,200_QL40_&dpSrc=srch
+
+Start with WHY: https://www.amazon.com/Start-Why-Leaders-Inspire-Everyone/dp/1591846447/ref=sr_1_3?s=books&ie=UTF8&qid=1533773602&sr=1-3&keywords=start+with+WHY&dpID=51BlNddi%252BNL&preST=_SY291_BO1,204,203,200_QL40_&dpSrc=srch
+
