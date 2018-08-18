@@ -26,6 +26,10 @@ This paper is actively looking for contributors. Both from a proof-read-and-rewo
 
 If you would like to contribute, please message me on Twitter (@hitchysg_MSFT) or, submit a Pull Request. Everyones experience is relevant.
 
+### Current Contributors/Authors
+* Matthew Hitchcock (Microsoft)
+* Benjamin Hodge (KEMP Technologies)
+
 ## The "WHY" of this paper
 
 "I started this paper because I spent a long time on my Infrastructure-as-Code journey doing the wrong thing. Like most technical folks, my view of Infrastructure-as-Code on the Microsoft stack was doing Desired State Configuration. While this is a component of the Infrastructure-as-Code approach, it is by no means the destination. In fact, I came to learn it is the least important element. What I learned to be most important was the delivery mechanism, which I gave little thought to until I had DSC doing incredible things.
