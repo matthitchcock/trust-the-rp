@@ -2,7 +2,7 @@
 
 ## Overview
 
-> **Please Note: This paper is unpolished and at times opinionated and rant-y, it is being molded into something polished and presentable based on questions and feedback received so please, do send that and offer your perspectives. This paper will undergo frequent changes and I am grateful for the contributions already received. -Matt Hitchcock**
+> **Please Note: This paper is a work in progress, at times might be opinionated and rant-y, it is being molded into something polished and presentable based on questions and feedback received. I would be grateful for feedback and perspectives, please doreach me on Twitter (@hitchysg_MSFT) or raise an issue. This paper will undergo frequent changes and I am grateful for the contributions already received. -Matt Hitchcock**
 
 The goal of this paper is to provide you, the reader, with an approach through which you can reach the **tipping point** of a grass roots Release Pipeline transformation.
 
