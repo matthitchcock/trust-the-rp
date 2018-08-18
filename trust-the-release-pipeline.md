@@ -4,7 +4,7 @@
 
 > **Please Note: This paper is unpolished and at times opinionated and rant-y, it is being molded into something polished and presentable based on questions and feedback received so please, do send that and offer your perspectives. This paper will undergo frequent changes and I am grateful for the contributions already received. -Matt Hitchcock**
 
-The goal of this paper is to provide you, the reader, with an approach through which you can reach the tipping point of a grass roots Release Pipeline transformation.
+The goal of this paper is to provide you, the reader, with an approach through which you can reach the **tipping point** of a grass roots Release Pipeline transformation.
 
 A Release Pipeline is a DevOps process traditionally used for deploying software but is equally applicable to infrastructure when managing via Infrastructure-as-Code. We refer to a "grass roots" transformation because it assumes that you are in a technical role in a large enterprise driven by ITIL and you want to move to more of an "Infrastructure as Code" approach, but you don't have the backing of senior management at this time. The backing of senior management is crucial for a true transformation to take place, but where do you start and how do you gain that traction?
 
@@ -20,15 +20,21 @@ It is important to note that the Release Pipeline is a concept. The implementati
 
 If you do leverage this resource to help you on your journey, we would appreciate some feedback on what worked, what did not, and a contribution of your experience to help others is always welcome.
 
+## Contributions
+
+This paper is actively looking for contributors. Both from a proof-read-and-reword editorial aspect, and to add the perspective of others to round out the process as a whole. The more experience this captures, the more this can be trusted as a resource for success. Trust is what it is all about.
+
+If you would like to contribute, please message me on Twitter (@hitchysg_MSFT) or, submit a Pull Request. Everyones experience is relevant.
+
 ## The "WHY" of this paper
 
 "I started this paper because I spent a long time on my Infrastructure-as-Code journey doing the wrong thing. Like most technical folks, my view of Infrastructure-as-Code on the Microsoft stack was doing Desired State Configuration. While this is a component of the Infrastructure-as-Code approach, it is by no means the destination. In fact, I came to learn it is the least important element. What I learned to be most important was the delivery mechanism, which I gave little thought to until I had DSC doing incredible things.
 
-I liken this to having spent time building up the pizza-making capability of a delivery service only to be making incredible pizzas that no one was eating - because I couldn't deliver them! Instead, I wish I spent my time building up capability to deliver a plain cheese pizza in 20 minutes, consistently, to as many people who ordered, before I built out my menu.
+I liken this to having spent time building up the pizza-making capability only to be making incredible pizzas that no one was eating - because I had skipped the delivery process! Instead, I wish I spent my time building up capability to deliver a plain cheese pizza in 20 minutes, consistently, to as many people who ordered, before I built out my menu.
 
 What I found to be the most difficult is to get an infrastructure-as-code approach accepted by the Enterprise, because this was a change to the norm, this was automation that people had little reason to trust. What ensued was months of building release automation, workflows, feedback loops and so forth that, if we focused on at the start would have made ramping up the DSC code easier.
 
-People often asked me "can DSC do … x…" or "can DSC do … y…". Here's the thing - "Yes". DSC can do anything you want it to. DSC is code, code you can write yourself. There may not be Resources readily available but DSC can do anything you want. If you find yourself asking or being asked this question, rather than trying to prove what it can or cannot do, stop yourself. Focus on "how do I deliver my DSC code" and you'll find that is time best spent. Once you break down the barriers to using it in your enterprise, you can start to flow fast.
+People often asked me "can DSC do … x…" or "can DSC do … y…". Here's the thing - Yes. DSC can do anything you want it to. DSC is code, code you can write yourself. There may not be Resources readily available but DSC can do anything you want. If you find yourself asking or being asked this question, rather than trying to prove what it can or cannot do, stop yourself. Focus on "how do I deliver my DSC code" and you'll find that is time best spent. Once you break down the barriers to using it in your enterprise, you can start to flow fast.
 
 It is my hope that this paper helps you break down those barriers." -Matt Hitchcock
 
@@ -337,9 +343,8 @@ Text
 
 # References
 
-Diffusion of Innovation: https://www.amazon.com/Diffusion-Innovations-5th-Everett-Rogers/dp/0743222091/ref=sr_1_1?ie=UTF8&qid=1533773479&sr=8-1&keywords=diffusion+of+innovations&dpID=51Bd4UVQn5L&preST=_SY291_BO1,204,203,200_QL40_&dpSrc=srch
-
-Crossing the Chasm: https://www.amazon.com/Crossing-Chasm-3rd-Disruptive-Mainstream/dp/0062292986/ref=sr_1_1?s=books&ie=UTF8&qid=1533773566&sr=1-1&keywords=crossing+the+chasm&dpID=51nv3edK81L&preST=_SY291_BO1,204,203,200_QL40_&dpSrc=srch
-
-Start with WHY: https://www.amazon.com/Start-Why-Leaders-Inspire-Everyone/dp/1591846447/ref=sr_1_3?s=books&ie=UTF8&qid=1533773602&sr=1-3&keywords=start+with+WHY&dpID=51BlNddi%252BNL&preST=_SY291_BO1,204,203,200_QL40_&dpSrc=srch
-
+| Book | Link | Detail |
+|----|----|----|
+| Diffusion of Innovation | https://www.amazon.com/Diffusion-Innovations-5th-Everett-Rogers/dp/0743222091/ref=sr_1_1?ie=UTF8&qid=1533773479&sr=8-1&keywords=diffusion+of+innovations&dpID=51Bd4UVQn5L&preST=_SY291_BO1,204,203,200_QL40_&dpSrc=srch ||
+| Crossing the Chasm | https://www.amazon.com/Crossing-Chasm-3rd-Disruptive-Mainstream/dp/0062292986/ref=sr_1_1?s=books&ie=UTF8&qid=1533773566&sr=1-1&keywords=crossing+the+chasm&dpID=51nv3edK81L&preST=_SY291_BO1,204,203,200_QL40_&dpSrc=srch | |
+| Start with WHY | https://www.amazon.com/Start-Why-Leaders-Inspire-Everyone/dp/1591846447/ref=sr_1_3?s=books&ie=UTF8&qid=1533773602&sr=1-3&keywords=start+with+WHY&dpID=51BlNddi%252BNL&preST=_SY291_BO1,204,203,200_QL40_&dpSrc=srch | |
