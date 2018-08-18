@@ -10,7 +10,7 @@ A Release Pipeline is a DevOps process traditionally used for deploying software
 
 What is outlined in this paper is a suggested approach for how to adopt a Release Pipeline for infrastructure within an Enterprise, ITIL environment not used to operating in this way. This is based on real world and practical experience of the authors and contributors of implementing Release Pipelines for Infrastructure. Both what they did right, and, what they did wrong.
 
-The content consists of experience collected together from different customers and conversations, with some specifics changed to prevent the identification of those organizations.
+The content consists (or will consist) of experience collected together from different customers and conversations, with some specifics changed to prevent the identification of those organizations.
 
 It does not focus on the technical steps, instead, on the process, challenges and high level thinking required to influence this change within an Enterprise organization. 
 
@@ -55,6 +55,19 @@ In his book, "Crossing the Chasm" Geoffrey Moore (see References) builds on the 
 The Tipping Point is the point at which the early adopters who are working with you are ready and willing to make change. They have "crossed the chasm". In the context of this paper, it means that they have seen the value of a Release Pipeline for infrastructure, they understand at more than a theory level but at a practical level what it can do for them and the organization, and they are ready to commit to change.
 
 So who are "they"? Who are the "early adopters" in this? They are outlined in more detail later, but essentially "they" are made up from all of the teams that are involved in your IT management process who are willing to experiment with something new and act as influencers within their respective teams and business units. Usually this would be someone from IT Security, someone from Change Management, a Service Manager and so on. These are generally the people you start with until enough momentum has gathered to approach the senior management who can help drive the organizational change. That point when you demonstrate to your IT leadership to achieve their buy in, that is the tipping point.
+
+## Lessons to pass on
+
+This section offers advice from folks who have been through, or attempted this transformation, to pass on to those just getting started.
+
+"Keep the goal in mind and don't get too invested in the technology. Technology and the tools you use should not be the main focus or concern. It should be the fact that you make it through a transformation, that you get people on board and that you drive meaningful change. You might start out using VSTS and DSC, but, if you get down the road far enough that you've garnered support and those supporters want to change direction and use Chef, Octopus Deploy and Python, be ok with that.
+
+If the technology is important to you and you are going to become attached to that, you're disadvantaging yourself. Technology moves to fast in the DevOps space, there are new tools created and released weekly and we, as professionals, need to be able to move between them fast. That means investing in the concepts first and foremost. It's ok to debate what should be in Unit vs. Integration tests, but debating at length whether Pester or InSpec is used for this is futile and a waste of time. Technology loyalties damage relationships and it is most important to move forwards together, as a team, whether its the products you like or think are the best, or not.
+
+Lastly, relinquish control. Others who come onboard with this initiative will have different ideas of what to do and how to move forward. Don
+t think that you have all the answers and you are solely accountable. Let others take the lead, let opinions be heard and experiment - if nothing more than for education.
+
+If you can can do these two things, you are sure to have a better chance of success." - Matt Hitchcock
 
 # Getting Started
 ## Release Pipeline in more Depth: What does it mean for Infrastructure?
